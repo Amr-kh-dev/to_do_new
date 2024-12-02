@@ -1,0 +1,23 @@
+{
+    "toDoList":"قائمة المهام",
+    "delete":"الغاء",
+    "addNewTask":"اضافة مهام",
+    "selectTime":"اخيار الوقت",
+    "done":"تم",
+    "settings":"الاعدات",
+    "darkmode":"الوضع الليلي",
+    "editTask":" تعديل المهمه",
+    "saveChanges":"حفظ التغيرات",
+    "english":"الانجليزيه",
+    "arbiac":"العربيه",
+    "language":"اللغه",
+    "enterYourTask":"ادخل المهمه",
+    "enterYourDscrbtion":"ادخل التفاصيل المهمه",
+    "add":"اضافه",
+    "tasks":"المهام",
+    "edit":"التعديل",
+    "logOut":"الخروج"
+    
+
+
+}

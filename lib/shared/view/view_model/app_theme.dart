@@ -13,7 +13,7 @@ class AppTheme {
   static ThemeData lightMode = ThemeData(
       appBarTheme:
           AppBarTheme(backgroundColor: Colors.transparent, centerTitle: true),
-      primaryColor: primaryColorLight,
+      primaryColor: white,
       scaffoldBackgroundColor: white,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
@@ -29,6 +29,8 @@ class AppTheme {
         shape: CircleBorder(side: BorderSide(width: 4, color: white)),
       ),
       textTheme: TextTheme(
+          headlineMedium: TextStyle(
+              fontSize: 22, color: white, fontWeight: FontWeight.w700),
           titleMedium: TextStyle(
               fontSize: 20, color: black, fontWeight: FontWeight.bold),
           titleSmall: TextStyle(
@@ -58,6 +60,8 @@ class AppTheme {
         shape: CircleBorder(side: BorderSide(width: 4, color: white)),
       ),
       textTheme: TextTheme(
+          headlineMedium: TextStyle(
+              fontSize: 22, color: black, fontWeight: FontWeight.w700),
           titleMedium: TextStyle(
               fontSize: 20, color: black, fontWeight: FontWeight.bold),
           titleSmall: TextStyle(

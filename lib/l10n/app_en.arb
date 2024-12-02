@@ -1,0 +1,23 @@
+{
+   "toDoList":" To Do List",
+    "delete":"Delete",
+    "addNewTask":" Add New Task",
+    "selectTime":"selectTime ",
+    "done":"Done!",
+    "settings":"settings",
+    "darkmode":" Dark Mode",
+    "editTask":" Edit Task ",
+    "saveChanges":" Save Changes",
+    "english":"English",
+    "arbiac":"Arbiac",
+    "language":"Language",
+    "enterYourTask":" Enter Your Task",
+    "enterYourDscrbtion":"Enter Your Discretion  ",
+    "add":"Add",
+    "tasks":"Tasks",
+    "edit":"Edit",
+    "logOut":"Log Out"
+
+
+
+}
