@@ -14,12 +14,12 @@ class AppTheme {
       appBarTheme:
           AppBarTheme(backgroundColor: Colors.transparent, centerTitle: true),
       primaryColor: white,
-      scaffoldBackgroundColor: white,
+      scaffoldBackgroundColor: gry,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: gry,
+        backgroundColor: white,
         selectedItemColor: primaryColorLight,
-        unselectedItemColor: white,
+        unselectedItemColor: gry,
         showSelectedLabels: false,
         showUnselectedLabels: false,
       ),

@@ -6,6 +6,7 @@ import 'package:to_do_new/settings/view/screen/setting_screen.dart';
 import 'package:to_do_new/settings/view_model/setting_Provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:to_do_new/shared/view/view_model/app_theme.dart';
+import 'package:to_do_new/tasks/view/widget/button_sheet.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -24,8 +25,9 @@ class ToDoApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
         SettingScreen.routeName: (context) => SettingScreen(),
+        ButtonSheet.routeName: (context) => ButtonSheet(),
       },
-      initialRoute: SettingScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       theme: AppTheme.lightMode,
       darkTheme: AppTheme.darkMode,
       themeMode: settingProvider.themeMode,

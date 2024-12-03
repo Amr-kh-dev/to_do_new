@@ -6,6 +6,7 @@ class SettingProvider with ChangeNotifier {
   bool isDarkMode = false;
   bool get isDark => themeMode == ThemeMode.dark;
   Locale _locale = Locale('en');
+  bool isDone = false;
 
   Locale get locale => _locale;
 
@@ -17,6 +18,11 @@ class SettingProvider with ChangeNotifier {
   void changeThemeMode() {
     isDarkMode = !isDarkMode;
     themeMode = isDarkMode ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
+
+  void toggleDone() {
+    isDone = !isDone;
     notifyListeners();
   }
 }

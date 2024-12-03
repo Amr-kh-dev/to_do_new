@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_new/settings/view/widget/Dropdownbutton_to_switch_language.dart';
 import 'package:to_do_new/settings/view/widget/log_out.dart';
 import 'package:to_do_new/settings/view/widget/switch_mode_togel.dart';
-import 'package:to_do_new/settings/view_model/language_model.dart';
+
 import 'package:to_do_new/shared/view/view_model/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
