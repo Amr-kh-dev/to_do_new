@@ -16,7 +16,10 @@
     "add":"Add",
     "tasks":"Tasks",
     "edit":"Edit",
-    "logOut":"Log Out"
+    "logOut":"Log Out",
+    "descriptionRequired":"Description Required",
+    "titleonRequired":" Title Required"
+
 
 
 

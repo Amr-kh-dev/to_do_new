@@ -4,9 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:to_do_new/settings/view_model/setting_Provider.dart';
 import 'package:to_do_new/shared/view/view_model/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:to_do_new/tasks/view_model/task_model.dart';
 
 class TaskItem extends StatelessWidget {
-  const TaskItem({super.key});
+  TaskItem({super.key, required this.task});
+  TaskModel task;
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +56,14 @@ class TaskItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  'basket ball',
+                  task.title,
                   style: textTheme.titleLarge!.copyWith(
                       color: settingProvider.isDone
                           ? AppTheme.green
                           : AppTheme.primaryColorLight),
                 ),
                 Text(
-                  'base ball',
+                  task.descrption,
                   style: textTheme.titleSmall!.copyWith(
                       color: settingProvider.isDone
                           ? AppTheme.white

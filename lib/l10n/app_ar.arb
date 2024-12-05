@@ -16,7 +16,9 @@
     "add":"اضافه",
     "tasks":"المهام",
     "edit":"التعديل",
-    "logOut":"الخروج"
+    "logOut":"الخروج",
+    "descriptionRequired":" الوصف مطلوب",
+    "titleonRequired":"  العنوان مطلوب"
     
 
 

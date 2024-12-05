@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_new/shared/view/view_model/app_theme.dart';
 import 'package:to_do_new/tasks/view/widget/task_item.dart';
+import 'package:to_do_new/tasks/view_model/task_model.dart';
 import 'package:to_do_new/tasks/view_model/tasks_provider.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
@@ -38,7 +40,7 @@ class _TaskScreenState extends State<TaskScreen> {
                 ),
                 child: SafeArea(
                     child: Text(
-                  'ToDo List',
+                  AppLocalizations.of(context)!.toDoList,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
@@ -110,8 +112,12 @@ class _TaskScreenState extends State<TaskScreen> {
             child: ListView.builder(
           padding: EdgeInsets.only(top: 20),
           itemBuilder: (_, index) => TaskItem(
-              // task: tasksProvider.tasks[index],
-              ),
+            // task: tasksProvider.tasks[index],
+            task: TaskModel(
+                descrption: 'asdfkads',
+                dateTime: DateTime.now(),
+                title: 'asdfkads'),
+          ),
           itemCount: 10,
           // tasksProvider.tasks.length,
         ))

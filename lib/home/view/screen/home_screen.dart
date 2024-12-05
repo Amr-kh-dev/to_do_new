@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_new/settings/view/screen/setting_screen.dart';
 import 'package:to_do_new/shared/view/view_model/app_theme.dart';
 import 'package:to_do_new/tasks/view/screen/task_screen.dart';
-import 'package:to_do_new/tasks/view/widget/button_sheet.dart';
+import 'package:to_do_new/tasks/view/widget/bottom_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => showModalBottomSheet(
           context: context,
-          isScrollControlled: true,
+          // isScrollControlled: true,
           builder: (_) => ButtonSheet(),
         ),
         child: Icon(
