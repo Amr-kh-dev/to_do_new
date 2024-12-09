@@ -19,14 +19,15 @@ class DefaultTextField extends StatelessWidget {
     return Container(
         color: settingProvider.isDark ? AppTheme.gry : AppTheme.white,
         child: TextFormField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.grey),
-              ),
-              labelText: hintText,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: Colors.grey),
             ),
-            controller: controller,
-            validator: validator));
+            labelText: hintText,
+          ),
+          controller: controller,
+          validator: validator,
+        ));
   }
 }

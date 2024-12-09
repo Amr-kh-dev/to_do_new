@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_new/shared/view/view_model/app_theme.dart';
+import 'package:to_do_new/tasks/data/firebase_function.dart';
 import 'package:to_do_new/tasks/view/widget/task_item.dart';
 import 'package:to_do_new/tasks/view_model/task_model.dart';
 import 'package:to_do_new/tasks/view_model/tasks_provider.dart';
@@ -16,6 +18,8 @@ class TaskScreen extends StatefulWidget {
 
 class _TaskScreenState extends State<TaskScreen> {
   bool flags = true;
+  List<TaskModel> tasks = [];
+  bool shodeGetTasks = false;
   @override
   Widget build(BuildContext context) {
     // TasksProvider tasksProvider = Provider.of<TasksProvider>(context);
@@ -23,6 +27,10 @@ class _TaskScreenState extends State<TaskScreen> {
     //   tasksProvider.getAllTasksFormFireBase();
     //   flags = false;
     // }
+    if (shodeGetTasks) {
+      getTasks();
+      shodeGetTasks = false;
+    }
     double hiegt = MediaQuery.sizeOf(context).height;
     double width = MediaQuery.sizeOf(context).width;
     return Column(
@@ -113,15 +121,21 @@ class _TaskScreenState extends State<TaskScreen> {
           padding: EdgeInsets.only(top: 20),
           itemBuilder: (_, index) => TaskItem(
             // task: tasksProvider.tasks[index],
-            task: TaskModel(
-                descrption: 'asdfkads',
-                dateTime: DateTime.now(),
-                title: 'asdfkads'),
+            // task: TaskModel(
+            //     descrption: 'asdfkads',
+            //     dateTime: DateTime.now(),
+            //     title: 'asdfkads'),
+            task: tasks[0],
           ),
-          itemCount: 10,
+          itemCount: tasks.length,
           // tasksProvider.tasks.length,
-        ))
+        )),
       ],
     );
+  }
+
+  Future<void> getTasks() async {
+    tasks = await FirebaseFunction.getAllTaskCollection();
+    setState(() {});
   }
 }

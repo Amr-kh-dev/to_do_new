@@ -6,7 +6,7 @@ import 'package:to_do_new/shared/view/view_model/app_theme.dart';
 class DefaultButton extends StatelessWidget {
   DefaultButton({super.key, required this.label, required this.onClick});
   String label;
-  VoidCallback onClick;
+  void Function() onClick;
 
   @override
   Widget build(BuildContext context) {

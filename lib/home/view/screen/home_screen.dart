@@ -18,38 +18,37 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: tabs[currentTabIndex],
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 10,
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        padding: EdgeInsets.zero,
-        color: AppTheme.white,
-        child: BottomNavigationBar(
-            currentIndex: currentTabIndex,
-            elevation: 0,
-            onTap: (index) {
-              currentTabIndex = index;
-              setState(() {});
-            },
-            items: [
-              BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: 'Search'),
-            ]),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => showModalBottomSheet(
-          context: context,
-          // isScrollControlled: true,
-          builder: (_) => ButtonSheet(),
+        body: tabs[currentTabIndex],
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          notchMargin: 10,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          padding: EdgeInsets.zero,
+          color: AppTheme.white,
+          child: BottomNavigationBar(
+              currentIndex: currentTabIndex,
+              elevation: 0,
+              onTap: (index) {
+                currentTabIndex = index;
+                setState(() {});
+              },
+              items: [
+                BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Home'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.search), label: 'Search'),
+              ]),
         ),
-        child: Icon(
-          Icons.add,
-          size: 32,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => showModalBottomSheet(
+              context: context,
+              builder: (_) => ButtonSheet(),
+              isScrollControlled: true),
+          child: Icon(
+            Icons.add,
+            size: 32,
+          ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
+        floatingActionButtonLocation:
+            FloatingActionButtonLocation.centerDocked);
   }
 }

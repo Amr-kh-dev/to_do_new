@@ -6,8 +6,8 @@ import 'package:to_do_new/tasks/view_model/task_model.dart';
 class FirebaseFunction {
   static CollectionReference<TaskModel> getTasksColction() =>
       FirebaseFirestore.instance.collection('tesks').withConverter<TaskModel>(
-            fromFirestore: (snapshot, _) =>
-                TaskModel.formJeson(snapshot.data()!),
+            fromFirestore: (docSnapshot, _) =>
+                TaskModel.formJeson(docSnapshot.data()!),
             toFirestore: (value, _) => value.toJeson(),
           );
   static Future<void> addTasksToFireStore(TaskModel task) async {
@@ -26,8 +26,12 @@ class FirebaseFunction {
     return docs;
   }
 
-   static Future<void> deleteTaskForomFireStore(String taskId) async {
+  static Future<void> deleteTaskForomFireStore(String taskId) async {
     CollectionReference<TaskModel> allcollection = await getTasksColction();
-   return allcollection.doc(taskId).delete();
+    return allcollection.doc(taskId).delete();
+  }
+
+  static Future<void> editTaskForomFireStore(String taskId) async {
+    CollectionReference<TaskModel> allcollection = await getTasksColction();
   }
 }
