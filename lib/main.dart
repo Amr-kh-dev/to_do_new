@@ -9,17 +9,23 @@ import 'package:to_do_new/settings/view_model/setting_Provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:to_do_new/shared/view/view_model/app_theme.dart';
 import 'package:to_do_new/tasks/view/widget/bottom_sheet.dart';
+import 'package:to_do_new/tasks/view_model/tasks_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await FirebaseFirestore.instance.disableNetwork();
   runApp(
-    ChangeNotifierProvider<SettingProvider>(
+    ChangeNotifierProvider(
       create: (_) => SettingProvider(),
-      builder: (_, child) {
-        return ToDoApp();
-      },
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<SettingProvider>(
+              create: (_) => SettingProvider()),
+          ChangeNotifierProvider<TasksProvider>(create: (_) => TasksProvider()),
+        ],
+        child: ToDoApp(),
+      ),
     ),
   );
 }

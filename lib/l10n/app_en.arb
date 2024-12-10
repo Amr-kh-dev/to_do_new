@@ -18,7 +18,10 @@
     "edit":"Edit",
     "logOut":"Log Out",
     "descriptionRequired":"Description Required",
-    "titleonRequired":" Title Required"
+    "titleonRequired":" Title Required",
+    "somethingWentWrong":" Something Went wrong",
+    "taskDeleted":"  Task Deleted",
+    "taskAdded":" Task Added  "
 
 
 

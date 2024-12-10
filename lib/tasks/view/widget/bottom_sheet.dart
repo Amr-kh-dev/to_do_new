@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_new/settings/view_model/setting_Provider.dart';
@@ -8,6 +9,7 @@ import 'package:to_do_new/shared/view/widget/default_button.dart';
 import 'package:to_do_new/shared/view/widget/default_text_Field.dart';
 import 'package:to_do_new/tasks/data/firebase_function.dart';
 import 'package:to_do_new/tasks/view_model/task_model.dart';
+import 'package:to_do_new/tasks/view_model/tasks_provider.dart';
 
 class ButtonSheet extends StatefulWidget {
   ButtonSheet({super.key});
@@ -30,6 +32,7 @@ class _ButtonSheetState extends State<ButtonSheet> {
   @override
   Widget build(BuildContext context) {
     SettingProvider settingProvider = Provider.of<SettingProvider>(context);
+    // TasksProvider tasksProvider = Provider.of<TasksProvider>(context);
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.only(
@@ -108,9 +111,28 @@ class _ButtonSheetState extends State<ButtonSheet> {
         title: titleEditingController.text,
       );
 
-      FirebaseFunction.addTasksToFireStore(task);
-      print('done');
-      Navigator.pop(context);
+      FirebaseFunction.addTasksToFireStore(task).then((value) {
+        Navigator.pop(context);
+        Provider.of<TasksProvider>(context, listen: false)
+            .getAllTasksFormFireBase();
+        Fluttertoast.showToast(
+            msg: AppLocalizations.of(context)!.taskAdded,
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: AppTheme.primaryColorLight,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      }).catchError((error) {
+        Fluttertoast.showToast(
+            msg: AppLocalizations.of(context)!.somethingWentWrong,
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      });
     }
   }
 }

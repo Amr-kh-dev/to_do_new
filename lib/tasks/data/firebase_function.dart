@@ -27,7 +27,7 @@ class FirebaseFunction {
   }
 
   static Future<void> deleteTaskForomFireStore(String taskId) async {
-    CollectionReference<TaskModel> allcollection = await getTasksColction();
+    CollectionReference<TaskModel> allcollection = getTasksColction();
     return allcollection.doc(taskId).delete();
   }
 

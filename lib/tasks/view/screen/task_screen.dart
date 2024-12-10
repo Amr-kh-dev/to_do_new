@@ -18,17 +18,17 @@ class TaskScreen extends StatefulWidget {
 
 class _TaskScreenState extends State<TaskScreen> {
   bool flags = true;
-  List<TaskModel> tasks = [];
+  // List<TaskModel> tasks = [];
   bool shodeGetTasks = false;
   @override
   Widget build(BuildContext context) {
-    // TasksProvider tasksProvider = Provider.of<TasksProvider>(context);
+    TasksProvider tasksProvider = Provider.of<TasksProvider>(context);
     // if (flags) {
     //   tasksProvider.getAllTasksFormFireBase();
     //   flags = false;
     // }
     if (shodeGetTasks) {
-      getTasks();
+      tasksProvider.getAllTasksFormFireBase();
       shodeGetTasks = false;
     }
     double hiegt = MediaQuery.sizeOf(context).height;
@@ -58,12 +58,12 @@ class _TaskScreenState extends State<TaskScreen> {
               padding: EdgeInsetsDirectional.only(top: hiegt * 0.15),
               child: EasyInfiniteDateTimeLine(
                 firstDate: DateTime.now().subtract(Duration(days: 365)),
-                focusDate: DateTime.now(),
-                //  tasksProvider.selectedDate,
+                focusDate:
+                    //  DateTime.now(),
+                    tasksProvider.selectedDate,
                 lastDate: DateTime.now().add(Duration(days: 365)),
-                onDateChange: (selectedDate) {
-                  // tasksProvider.changeDate(selectedDate);
-                },
+                onDateChange: (selectedDate) =>
+                    tasksProvider.changeDate(selectedDate),
                 showTimelineHeader: false,
                 dayProps: EasyDayProps(
                   height: 79,
@@ -125,17 +125,17 @@ class _TaskScreenState extends State<TaskScreen> {
             //     descrption: 'asdfkads',
             //     dateTime: DateTime.now(),
             //     title: 'asdfkads'),
-            task: tasks[0],
+            task: tasksProvider.tasks[index],
           ),
-          itemCount: tasks.length,
+          itemCount: tasksProvider.tasks.length,
           // tasksProvider.tasks.length,
         )),
       ],
     );
   }
 
-  Future<void> getTasks() async {
-    tasks = await FirebaseFunction.getAllTaskCollection();
-    setState(() {});
-  }
+  // Future<void> getTasks() async {
+  //   tasks = await FirebaseFunction.getAllTaskCollection();
+  //   setState(() {});
+  // }
 }

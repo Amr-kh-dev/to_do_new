@@ -18,7 +18,10 @@
     "edit":"التعديل",
     "logOut":"الخروج",
     "descriptionRequired":" الوصف مطلوب",
-    "titleonRequired":"  العنوان مطلوب"
+    "titleonRequired":"  العنوان مطلوب",
+    "somethingWentWrong":"شئ ما حدث خطاء",
+    "taskDeleted":"المهمه اتمسحت",
+    "taskAdded":" المهمه اضافة بنجاح"
     
 
 

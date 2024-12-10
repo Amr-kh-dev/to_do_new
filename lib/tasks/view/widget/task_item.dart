@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_new/settings/view_model/setting_Provider.dart';
 import 'package:to_do_new/shared/view/view_model/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:to_do_new/tasks/data/firebase_function.dart';
 import 'package:to_do_new/tasks/view_model/task_model.dart';
+import 'package:to_do_new/tasks/view_model/tasks_provider.dart';
 
 class TaskItem extends StatelessWidget {
   TaskItem({super.key, required this.task});
@@ -28,7 +31,30 @@ class TaskItem extends StatelessWidget {
           motion: const ScrollMotion(),
           children: [
             SlidableAction(
-              onPressed: (_) {},
+              onPressed: (_) {
+                FirebaseFunction.deleteTaskForomFireStore(task.id)
+                    .timeout(Duration(milliseconds: 100), onTimeout: () {
+                  Provider.of<TasksProvider>(context, listen: false)
+                      .getAllTasksFormFireBase();
+                  Fluttertoast.showToast(
+                      msg: AppLocalizations.of(context)!.taskDeleted,
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.red,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
+                }).catchError((e) {
+                  Fluttertoast.showToast(
+                      msg: AppLocalizations.of(context)!.somethingWentWrong,
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.red,
+                      textColor: Colors.white,
+                      fontSize: 16.0);
+                });
+              },
               backgroundColor: const Color(0xFFFE4A49),
               foregroundColor: Colors.white,
               icon: Icons.delete,
