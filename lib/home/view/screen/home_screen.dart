@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_new/settings/view/screen/setting_screen.dart';
-import 'package:to_do_new/shared/view/view_model/app_theme.dart';
+import 'package:to_do_new/shared/view_model/app_theme.dart';
 import 'package:to_do_new/tasks/view/screen/task_screen.dart';
 import 'package:to_do_new/tasks/view/widget/bottom_sheet.dart';
 

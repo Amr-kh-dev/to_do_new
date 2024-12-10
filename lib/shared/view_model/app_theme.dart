@@ -11,8 +11,9 @@ class AppTheme {
 
   //////////////////////////////////////////////////////////
   static ThemeData lightMode = ThemeData(
-      appBarTheme:
-          AppBarTheme(backgroundColor: Colors.transparent, centerTitle: true),
+      appBarTheme: AppBarTheme(
+          backgroundColor: primaryColorLight,
+          iconTheme: IconThemeData(color: white)),
       primaryColor: white,
       scaffoldBackgroundColor: gry,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(

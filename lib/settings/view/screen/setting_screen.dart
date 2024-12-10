@@ -3,7 +3,7 @@ import 'package:to_do_new/settings/view/widget/Dropdownbutton_to_switch_language
 import 'package:to_do_new/settings/view/widget/log_out.dart';
 import 'package:to_do_new/settings/view/widget/switch_mode_togel.dart';
 
-import 'package:to_do_new/shared/view/view_model/app_theme.dart';
+import 'package:to_do_new/shared/view_model/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingScreen extends StatelessWidget {

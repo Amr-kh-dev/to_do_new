@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_new/settings/view_model/language_model.dart';
 import 'package:to_do_new/settings/view_model/setting_Provider.dart';
-import 'package:to_do_new/shared/view/view_model/app_theme.dart';
+import 'package:to_do_new/shared/view_model/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DropdownbuttonToSwitchLanguage extends StatelessWidget {

@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_new/settings/view_model/setting_Provider.dart';
-import 'package:to_do_new/shared/view/view_model/app_theme.dart';
+import 'package:to_do_new/shared/view_model/app_theme.dart';
 import 'package:to_do_new/shared/view/widget/default_button.dart';
 import 'package:to_do_new/shared/view/widget/default_text_Field.dart';
 import 'package:to_do_new/tasks/data/firebase_function.dart';
@@ -55,6 +55,9 @@ class _ButtonSheetState extends State<ButtonSheet> {
                         ? AppTheme.white
                         : AppTheme.black),
               ),
+              SizedBox(
+                height: 40,
+              ),
               DefaultTextField(
                 hintText: AppLocalizations.of(context)!.enterYourTask,
                 controller: titleEditingController,
@@ -65,6 +68,9 @@ class _ButtonSheetState extends State<ButtonSheet> {
                   return null;
                 },
               ),
+              SizedBox(
+                height: 20,
+              ),
               DefaultTextField(
                 hintText: AppLocalizations.of(context)!.enterYourDscrbtion,
                 controller: discretionEditingController,
@@ -74,6 +80,9 @@ class _ButtonSheetState extends State<ButtonSheet> {
                   }
                   return null;
                 },
+              ),
+              SizedBox(
+                height: 20,
               ),
               InkWell(
                   onTap: () async {
@@ -87,7 +96,15 @@ class _ButtonSheetState extends State<ButtonSheet> {
                       setState(() {});
                     }
                   },
-                  child: Text(dateFormat.format(SelectedDate))),
+                  child: Column(
+                    children: [
+                      Text(AppLocalizations.of(context)!.selectTime),
+                      Text(dateFormat.format(SelectedDate)),
+                    ],
+                  )),
+              SizedBox(
+                height: 20,
+              ),
               DefaultButton(
                 onClick: () {
                   if (formKey.currentState!.validate()) {

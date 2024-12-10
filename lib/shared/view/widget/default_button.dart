@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do_new/settings/view_model/setting_Provider.dart';
-import 'package:to_do_new/shared/view/view_model/app_theme.dart';
+import 'package:to_do_new/shared/view_model/app_theme.dart';
 
 class DefaultButton extends StatelessWidget {
   DefaultButton({super.key, required this.label, required this.onClick});
@@ -21,7 +21,7 @@ class DefaultButton extends StatelessWidget {
               label,
               style: TextStyle(
                   color:
-                      settingProvider.isDark ? AppTheme.white : AppTheme.black),
+                      settingProvider.isDark ? AppTheme.black : AppTheme.white),
             ),
           ),
           padding: EdgeInsets.all(16.0),

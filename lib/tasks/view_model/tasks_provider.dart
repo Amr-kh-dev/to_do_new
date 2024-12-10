@@ -3,8 +3,15 @@ import 'package:to_do_new/tasks/data/firebase_function.dart';
 import 'package:to_do_new/tasks/view_model/task_model.dart';
 
 class TasksProvider with ChangeNotifier {
+  // bool isDone = false;
+
   List<TaskModel> tasks = [];
   DateTime selectedDate = DateTime.now();
+
+  void toggleDone() {
+    // isDone = !isDone;
+    notifyListeners();
+  }
 
   Future<void> getAllTasksFormFireBase() async {
     List<TaskModel> allTasks = await FirebaseFunction.getAllTaskCollection();
@@ -21,5 +28,9 @@ class TasksProvider with ChangeNotifier {
     print("changeDate");
     selectedDate = date;
     getAllTasksFormFireBase();
+  }
+
+  Future<void> initializeTasks() async {
+    await getAllTasksFormFireBase();
   }
 }

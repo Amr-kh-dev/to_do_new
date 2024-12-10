@@ -28,7 +28,7 @@ class TaskModel {
       'title': title,
       'description': descrption,
       'dateTime': Timestamp.fromDate(dateTime),
-      'isDone': isDone,
+      "isDone": isDone,
     };
   }
 }

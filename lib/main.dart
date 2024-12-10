@@ -7,8 +7,9 @@ import 'package:to_do_new/home/view/screen/home_screen.dart';
 import 'package:to_do_new/settings/view/screen/setting_screen.dart';
 import 'package:to_do_new/settings/view_model/setting_Provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:to_do_new/shared/view/view_model/app_theme.dart';
+import 'package:to_do_new/shared/view_model/app_theme.dart';
 import 'package:to_do_new/tasks/view/widget/bottom_sheet.dart';
+import 'package:to_do_new/tasks/view/widget/edit_sheet.dart';
 import 'package:to_do_new/tasks/view_model/tasks_provider.dart';
 
 Future<void> main() async {
@@ -22,7 +23,11 @@ Future<void> main() async {
         providers: [
           ChangeNotifierProvider<SettingProvider>(
               create: (_) => SettingProvider()),
-          ChangeNotifierProvider<TasksProvider>(create: (_) => TasksProvider()),
+          ChangeNotifierProvider<TasksProvider>(create: (_) {
+            final tasksProvider = TasksProvider();
+            tasksProvider.initializeTasks();
+            return tasksProvider;
+          }),
         ],
         child: ToDoApp(),
       ),
@@ -43,6 +48,7 @@ class ToDoApp extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(),
         SettingScreen.routeName: (context) => SettingScreen(),
         ButtonSheet.routeName: (context) => ButtonSheet(),
+        EditSheet.routeName: (context) => EditSheet(),
       },
       initialRoute: HomeScreen.routeName,
       theme: AppTheme.lightMode,

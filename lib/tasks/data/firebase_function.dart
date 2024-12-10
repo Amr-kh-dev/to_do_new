@@ -31,7 +31,20 @@ class FirebaseFunction {
     return allcollection.doc(taskId).delete();
   }
 
-  static Future<void> editTaskForomFireStore(String taskId) async {
-    CollectionReference<TaskModel> allcollection = await getTasksColction();
+  static Future<void> editIsDone(
+    TaskModel task,
+  ) async {
+    var collection = getTasksColction();
+    return collection.doc(task.id).update({
+      "isDone": task.isDone,
+    });
+  }
+
+  static Future<void> editTask(
+    TaskModel? task,
+    // String uId
+  ) async {
+    var collection = getTasksColction();
+    return collection.doc(task!.id).update(task!.toJeson());
   }
 }
